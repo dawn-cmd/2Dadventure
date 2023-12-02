@@ -1,0 +1,22 @@
+{
+  "name": "com.unity.burst",
+  "displayName": "Burst",
+  "version": "1.8.10",
+  "unity": "2020.3",
+  "description": "Burst is a compiler that translates from IL/.NET bytecode to highly optimized native code using LLVM.",
+  "dependencies": {
+    "com.unity.mathematics": "1.2.1"
+  },
+  "_upm": {
+    "changelog": "### Fixed\n- Fixed the Burst Inspector not displaying target methods if namespace/class contained the method name.\n- Linking libstdc++/libc++ statically on HMI platforms\n- Fixed an issue that caused an empty variable to be returned if it is between a zero initializer\n- Native debug information would fail to reflect the contents of parameters to functions.\n- For native debug information, type symbols can now be referenced using :: separator between namespaces (C++ style) - E.g. Example.Type  becomes Example::Type.\n- Fixed that changing certain player build platform settings (like SDK version) would not trigger Burst to recompile\n- Fixed invalid burst string formats leading to internal compiler error.\n- Fixed QNX player builds on 32-bit ARM\n- Fixed an error thrown by the Burst Inspector when opening a non-static job with special characters in its name\n\n### Added\n- Added support for System.Math functions Acosh, Asinh, Atanh, Cbrt, CopySign, Log2, SinCos, FusedMultiplyAdd, and ILogB\n\n### Removed\n- Remove all code specific to DOTS Runtime\n\n### Changed\n- Use mimalloc as our native allocator on Windows to speed up concurrently executing LLVM work\n\n### Known Issues"
+  },
+  "upmCi": {
+    "footprint": "7818b75842c82d169574616a84e2f0219c202f15"
+  },
+  "documentationUrl": "https://docs.unity3d.com/Packages/com.unity.burst@1.8/manual/index.html",
+  "repository": {
+    "url": "git@github.cds.internal.unity3d.com:unity/burst",
+    "type": "git",
+    "revision": "5c15eb0286bb61ca0ab006d4db90460d7304c8f3"
+  }
+}
