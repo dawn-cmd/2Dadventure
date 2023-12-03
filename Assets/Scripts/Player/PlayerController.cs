@@ -8,21 +8,24 @@ public class PlayerController : MonoBehaviour
 {
     public PlayerInputControl inputControl;
     private Rigidbody2D rb;
+    private PhysicsCheck physicsCheck;
     private SpriteRenderer spriteRenderer;
     public Vector2 inputDirection;
     [Header("Basic Parameter")]
     public float speed;
     public float jumpForce;
+    public bool enableDoubleJump;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        
+
         inputControl = new PlayerInputControl();
         inputControl.Gameplay.Jump.started += Jump;
 
         spriteRenderer = GetComponent<SpriteRenderer>();
 
+        physicsCheck = GetComponent<PhysicsCheck>();
     }
 
 
@@ -54,8 +57,11 @@ public class PlayerController : MonoBehaviour
     }
     private void Jump(InputAction.CallbackContext context)
     {
+        if (physicsCheck.isGround == false && enableDoubleJump == false) return;
         // Debug.Log("JUMP");
-        rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
+        if (physicsCheck.isGround == false) enableDoubleJump = false;
+        rb.AddForce(transform.up * (float)(enableDoubleJump == true ? jumpForce : (jumpForce * 1.5)), ForceMode2D.Impulse);
+        
     }
 }
 
