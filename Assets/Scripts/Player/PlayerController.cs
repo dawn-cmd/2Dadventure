@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     public Vector2 inputDirection;
     [Header("Basic Parameter")]
     public float speed;
+    private float walkSpeed => speed / 2.5f;
+    private float runSpeed;
     public float jumpForce;
     public bool enableDoubleJump;
 
@@ -20,12 +22,25 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
 
+
         inputControl = new PlayerInputControl();
         inputControl.Gameplay.Jump.started += Jump;
+
 
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         physicsCheck = GetComponent<PhysicsCheck>();
+        #region ForceWalk
+        runSpeed = speed;
+        inputControl.Gameplay.WalkButton.performed += ctx =>
+        {
+            if (physicsCheck.isGround) speed = walkSpeed;
+        };
+        inputControl.Gameplay.WalkButton.canceled += ctx =>
+        {
+            if (physicsCheck.isGround) speed = runSpeed;
+        };
+        #endregion  
     }
 
 
@@ -61,7 +76,7 @@ public class PlayerController : MonoBehaviour
         // Debug.Log("JUMP");
         if (physicsCheck.isGround == false) enableDoubleJump = false;
         rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
-        
+
     }
 }
 
