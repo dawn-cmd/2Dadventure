@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
         if (physicsCheck.isGround == false && enableDoubleJump == false) return;
         // Debug.Log("JUMP");
         if (physicsCheck.isGround == false) enableDoubleJump = false;
-        rb.AddForce(transform.up * (float)(enableDoubleJump == true ? jumpForce : (jumpForce * 1.5)), ForceMode2D.Impulse);
+        rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
         
     }
 }
