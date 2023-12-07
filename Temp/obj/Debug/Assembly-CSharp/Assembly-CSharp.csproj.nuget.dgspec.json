@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\OneDrive - UW-Madison\\Code\\Unity Projects\\2Dadventure\\Assembly-CSharp.csproj": {}
+    "D:\\Unity Projects\\2Dadventure\\Assembly-CSharp.csproj": {}
   },
   "projects": {
-    "D:\\OneDrive - UW-Madison\\Code\\Unity Projects\\2Dadventure\\Assembly-CSharp.csproj": {
+    "D:\\Unity Projects\\2Dadventure\\Assembly-CSharp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\OneDrive - UW-Madison\\Code\\Unity Projects\\2Dadventure\\Assembly-CSharp.csproj",
+        "projectUniqueName": "D:\\Unity Projects\\2Dadventure\\Assembly-CSharp.csproj",
         "projectName": "Assembly-CSharp",
-        "projectPath": "D:\\OneDrive - UW-Madison\\Code\\Unity Projects\\2Dadventure\\Assembly-CSharp.csproj",
+        "projectPath": "D:\\Unity Projects\\2Dadventure\\Assembly-CSharp.csproj",
         "packagesPath": "C:\\Users\\25956\\.nuget\\packages\\",
-        "outputPath": "D:\\OneDrive - UW-Madison\\Code\\Unity Projects\\2Dadventure\\Temp\\obj\\Debug\\Assembly-CSharp\\",
+        "outputPath": "D:\\Unity Projects\\2Dadventure\\Temp\\obj\\Debug\\Assembly-CSharp\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\25956\\AppData\\Roaming\\NuGet\\NuGet.Config"
