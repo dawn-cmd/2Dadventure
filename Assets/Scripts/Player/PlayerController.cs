@@ -74,8 +74,14 @@ public class PlayerController : MonoBehaviour
         Move();
     }
 
+    // // Test
+    // private void OnTriggerStay2D(Collider2D other)
+    // {
+    //     Debug.Log(other.name);
+    // }
+
     public void Move()
-    { 
+    {
         rb.velocity = new Vector2(isCrouch ? 0 : inputDirection.x * speed * Time.deltaTime, rb.velocity.y);
 
         // Flip character
