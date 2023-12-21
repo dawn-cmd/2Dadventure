@@ -67,7 +67,11 @@
     <Compile Include="Assets\Scripts\General\PhysicsCheck.cs" />
     <Compile Include="Assets\Scripts\General\Attack.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Enemy\Boar.cs" />
+    <Compile Include="Assets\Scripts\Enemy\Enemy.cs" />
     <Compile Include="Assets\Scripts\General\Character.cs" />
+    <Compile Include="Assets\Scripts\Player\HurtAnimation.cs" />
+    <Compile Include="Assets\AttackFinish.cs" />
     <Compile Include="Assets\Settings\InputSystem\PlayerInputControl.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerAnimation.cs" />
   </ItemGroup>

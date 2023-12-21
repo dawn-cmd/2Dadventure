@@ -17,22 +17,37 @@ public class PlayerController : MonoBehaviour
     private CapsuleCollider2D coll;
     private Vector2 originalOffset;
     private Vector2 originalSize;
+    private PlayerAnimation playerAnimation;
     [Header("Basic Parameter")]
     public float speed;
     private float walkSpeed => speed / 2.5f;
     private float runSpeed;
     public float jumpForce;
     public bool enableDoubleJump;
-    public bool isCrouch;
+    public int combo;
 
+    [Header("Physical Material")]
+    public PhysicsMaterial2D normal;
+    public PhysicsMaterial2D wall;
+
+    [Header("States")]
+    public bool isCrouch;
+    public float HurtForce;
+    public bool isHurt;
+    public bool isDead;
+    public bool isAttack;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-
+        playerAnimation = GetComponent<PlayerAnimation>();
 
         inputControl = new PlayerInputControl();
+
+        // Set of Jump
         inputControl.Gameplay.Jump.started += Jump;
 
+        // Set of Attack
+        inputControl.Gameplay.Attack.started += PlayerAttack;
 
         spriteRenderer = GetComponent<SpriteRenderer>();
 
@@ -54,7 +69,6 @@ public class PlayerController : MonoBehaviour
 
     }
 
-
     private void OnEnable()
     {
         inputControl.Enable();
@@ -66,12 +80,12 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         inputDirection = inputControl.Gameplay.Move.ReadValue<Vector2>();
-
+        CheckState();
     }
 
     private void FixedUpdate()
     {
-        Move();
+        if (!isHurt && !isAttack) Move();
     }
 
     // // Test
@@ -109,6 +123,31 @@ public class PlayerController : MonoBehaviour
         if (physicsCheck.isGround == false) enableDoubleJump = false;
         rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
 
+    }
+    #region UnityEvent
+    public void GetHurt(Transform attacker)
+    {
+        isHurt = true;
+        rb.velocity = Vector2.zero;
+        Vector2 dir = new Vector2((transform.position.x - attacker.position.x), 0).normalized;
+        rb.AddForce(dir * HurtForce, ForceMode2D.Impulse);
+    }
+
+    public void PlayerDead()
+    {
+        isDead = true;
+        inputControl.Gameplay.Disable();
+    }
+    #endregion
+
+    private void PlayerAttack(InputAction.CallbackContext context)
+    {
+        playerAnimation.PlayerAttack();
+        isAttack = true;
+    }
+    private void CheckState()
+    {
+        coll.sharedMaterial = physicsCheck.isGround ? normal : wall;
     }
 }
 

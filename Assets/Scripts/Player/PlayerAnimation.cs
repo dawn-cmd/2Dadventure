@@ -10,19 +10,33 @@ public class PlayerAnimation : MonoBehaviour
     private Rigidbody2D rb;
     private PhysicsCheck physicsCheck;
     private PlayerController playerController;
-    private void Awake() {
+    private void Awake()
+    {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         physicsCheck = GetComponent<PhysicsCheck>();
         playerController = GetComponent<PlayerController>();
     }
-    private void Update() {
+    private void Update()
+    {
         SetAnimation();
     }
-    public void SetAnimation() {
+    public void SetAnimation()
+    {
         anim.SetFloat("velocityX", rb.velocity.x > 0 ? rb.velocity.x : -rb.velocity.x);
         anim.SetFloat("velocityY", rb.velocity.y > 0 ? rb.velocity.y : -rb.velocity.y);
         anim.SetBool("isGround", physicsCheck.isGround);
         anim.SetBool("isCrouch", playerController.isCrouch);
+        anim.SetBool("isDead", playerController.isDead);
+        anim.SetBool("isAttack", playerController.isAttack);
+    }
+    public void Playhurt()
+    {
+        anim.SetTrigger("Hurt");
+    }
+
+    public void PlayerAttack()
+    {
+        anim.SetTrigger("Attack");
     }
 }
