@@ -390,6 +390,7 @@
 "Assets/AttackFinish.cs"
 "Assets/Scripts/Enemy/BaseState.cs"
 "Assets/Scripts/Enemy/Boar.cs"
+"Assets/Scripts/Enemy/BoarChaseState.cs"
 "Assets/Scripts/Enemy/BoarPatrolState.cs"
 "Assets/Scripts/Enemy/Enemy.cs"
 "Assets/Scripts/General/Attack.cs"
@@ -398,6 +399,7 @@
 "Assets/Scripts/Player/HurtAnimation.cs"
 "Assets/Scripts/Player/PlayerAnimation.cs"
 "Assets/Scripts/Player/PlayerController.cs"
+"Assets/Scripts/Utilities/Enums.cs"
 "Assets/Settings/InputSystem/PlayerInputControl.cs"
 -langversion:9.0
 

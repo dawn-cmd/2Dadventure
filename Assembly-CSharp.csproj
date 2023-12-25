@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\Enemy\BoarPatrolState.cs" />
     <Compile Include="Assets\Scripts\General\Attack.cs" />
     <Compile Include="Assets\Scripts\Enemy\BaseState.cs" />
+    <Compile Include="Assets\Scripts\Enemy\BoarChaseState.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Enemy\Boar.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy.cs" />
@@ -75,6 +76,7 @@
     <Compile Include="Assets\Scripts\Player\HurtAnimation.cs" />
     <Compile Include="Assets\AttackFinish.cs" />
     <Compile Include="Assets\Settings\InputSystem\PlayerInputControl.cs" />
+    <Compile Include="Assets\Scripts\Utilities\Enums.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerAnimation.cs" />
   </ItemGroup>
   <ItemGroup>

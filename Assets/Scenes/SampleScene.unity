@@ -2017,7 +2017,7 @@ Tilemap:
       - {fileID: -1151070706, guid: e680fb1e30d138f4bacfa9e3fceab008, type: 3}
       - {fileID: 441675627, guid: e680fb1e30d138f4bacfa9e3fceab008, type: 3}
       - {fileID: -1977674055, guid: e680fb1e30d138f4bacfa9e3fceab008, type: 3}
-      m_AnimationSpeed: 7
+      m_AnimationSpeed: 7.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 3, y: -6, z: 0}
@@ -2028,7 +2028,7 @@ Tilemap:
       - {fileID: -1842585616, guid: e680fb1e30d138f4bacfa9e3fceab008, type: 3}
       - {fileID: 32411030, guid: e680fb1e30d138f4bacfa9e3fceab008, type: 3}
       - {fileID: -321374932, guid: e680fb1e30d138f4bacfa9e3fceab008, type: 3}
-      m_AnimationSpeed: 7
+      m_AnimationSpeed: 7.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 4, y: -6, z: 0}
@@ -2039,7 +2039,7 @@ Tilemap:
       - {fileID: 196922201, guid: e680fb1e30d138f4bacfa9e3fceab008, type: 3}
       - {fileID: 1375674165, guid: e680fb1e30d138f4bacfa9e3fceab008, type: 3}
       - {fileID: -1823218349, guid: e680fb1e30d138f4bacfa9e3fceab008, type: 3}
-      m_AnimationSpeed: 7
+      m_AnimationSpeed: 7.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 2, y: -5, z: 0}
@@ -2149,7 +2149,7 @@ Tilemap:
       - {fileID: -1151070706, guid: e680fb1e30d138f4bacfa9e3fceab008, type: 3}
       - {fileID: 441675627, guid: e680fb1e30d138f4bacfa9e3fceab008, type: 3}
       - {fileID: -1977674055, guid: e680fb1e30d138f4bacfa9e3fceab008, type: 3}
-      m_AnimationSpeed: 7
+      m_AnimationSpeed: 7.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 3, y: -2, z: 0}
@@ -2160,7 +2160,7 @@ Tilemap:
       - {fileID: -1842585616, guid: e680fb1e30d138f4bacfa9e3fceab008, type: 3}
       - {fileID: 32411030, guid: e680fb1e30d138f4bacfa9e3fceab008, type: 3}
       - {fileID: -321374932, guid: e680fb1e30d138f4bacfa9e3fceab008, type: 3}
-      m_AnimationSpeed: 7
+      m_AnimationSpeed: 7.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 4, y: -2, z: 0}
@@ -2204,7 +2204,7 @@ Tilemap:
       - {fileID: 196922201, guid: e680fb1e30d138f4bacfa9e3fceab008, type: 3}
       - {fileID: 1375674165, guid: e680fb1e30d138f4bacfa9e3fceab008, type: 3}
       - {fileID: -1823218349, guid: e680fb1e30d138f4bacfa9e3fceab008, type: 3}
-      m_AnimationSpeed: 7
+      m_AnimationSpeed: 7.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 2, y: 0, z: 0}
@@ -2325,7 +2325,7 @@ Tilemap:
       - {fileID: -1842585616, guid: e680fb1e30d138f4bacfa9e3fceab008, type: 3}
       - {fileID: 32411030, guid: e680fb1e30d138f4bacfa9e3fceab008, type: 3}
       - {fileID: -321374932, guid: e680fb1e30d138f4bacfa9e3fceab008, type: 3}
-      m_AnimationSpeed: 7
+      m_AnimationSpeed: 7.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 4, y: 3, z: 0}
@@ -2336,7 +2336,7 @@ Tilemap:
       - {fileID: 196922201, guid: e680fb1e30d138f4bacfa9e3fceab008, type: 3}
       - {fileID: 1375674165, guid: e680fb1e30d138f4bacfa9e3fceab008, type: 3}
       - {fileID: -1823218349, guid: e680fb1e30d138f4bacfa9e3fceab008, type: 3}
-      m_AnimationSpeed: 7
+      m_AnimationSpeed: 7.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 2, y: 4, z: 0}
@@ -2391,7 +2391,7 @@ Tilemap:
       - {fileID: -1842585616, guid: e680fb1e30d138f4bacfa9e3fceab008, type: 3}
       - {fileID: 32411030, guid: e680fb1e30d138f4bacfa9e3fceab008, type: 3}
       - {fileID: -321374932, guid: e680fb1e30d138f4bacfa9e3fceab008, type: 3}
-      m_AnimationSpeed: 7
+      m_AnimationSpeed: 7.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 4, y: 5, z: 0}
@@ -5038,7 +5038,7 @@ Transform:
   m_GameObject: {fileID: 2080604739}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.57, y: 2.22, z: 0}
+  m_LocalPosition: {x: 2.89, y: 2.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5160,9 +5160,17 @@ MonoBehaviour:
   faceDir: {x: 0, y: 0, z: 0}
   hurtForce: 8
   attacker: {fileID: 0}
+  centerOffset: {x: -0.03, y: 0.65}
+  checkSize: {x: 1, y: 1}
+  checkDis: 6
+  attackLayer:
+    serializedVersion: 2
+    m_Bits: 128
   waitTime: 3
   waitTimeCounter: 0
   wait: 0
+  lostTime: 1
+  lostCounter: 0
   isHurt: 0
   isDead: 0
 --- !u!95 &2080604748

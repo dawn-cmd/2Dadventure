@@ -7,10 +7,15 @@ public class BoarPatrolState : BaseState
     public override void OnEnter(Enemy enemy)
     {
         currentEnemy = enemy;
+        currentEnemy.currentSpeed = currentEnemy.normalSpeed;
     }
     public override void LogicUpdate()
     {
         // Find enemy change to chase
+        if (currentEnemy.FoundPlayer())
+        {
+            currentEnemy.switchState(NPCstate.Chase);
+        }
         if (currentEnemy.physicsCheck.touchLeftWall || !currentEnemy.physicsCheck.isGround)
         {
             currentEnemy.wait = true;
@@ -27,5 +32,6 @@ public class BoarPatrolState : BaseState
     public override void OnExit()
     {
         currentEnemy.anim.SetBool("Walk", false);
+        Debug.Log("Exit");
     }
 }
