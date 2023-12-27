@@ -63,7 +63,7 @@ public class Enemy : MonoBehaviour
     }
     public virtual void Move()
     {
-        if (!anim.GetAnimatorTransitionInfo(0).IsName("SnailPremove")) 
+        if (!anim.GetAnimatorTransitionInfo(0).IsName("SnailPremove"))
             rb.velocity = new Vector2(currentSpeed * faceDir.x * Time.deltaTime, rb.velocity.y);
     }
     public void TimeCounter()  // Time Counter

@@ -56,5 +56,11 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "2Dadventure.sln"
+    "dotnet.defaultSolution": "2Dadventure.sln",
+    "cSpell.words": [
+        "Behaviour",
+        "Cstate",
+        "Premove",
+        "Rigidbody"
+    ]
 }
