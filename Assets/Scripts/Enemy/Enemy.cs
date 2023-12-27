@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEngine;
-
+using UnityEngine.Analytics;
+[RequireComponent(typeof(Rigidbody2D), typeof(Animator), typeof(PhysicsCheck))]
 public class Enemy : MonoBehaviour
 {
     protected Rigidbody2D rb;
@@ -62,7 +63,8 @@ public class Enemy : MonoBehaviour
     }
     public virtual void Move()
     {
-        rb.velocity = new Vector2(currentSpeed * faceDir.x * Time.deltaTime, rb.velocity.y);
+        if (!anim.GetAnimatorTransitionInfo(0).IsName("SnailPremove")) 
+            rb.velocity = new Vector2(currentSpeed * faceDir.x * Time.deltaTime, rb.velocity.y);
     }
     public void TimeCounter()  // Time Counter
     {
