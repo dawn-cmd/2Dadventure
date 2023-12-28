@@ -75,6 +75,7 @@
     <Compile Include="Assets\Scripts\Enemy\Enemy.cs" />
     <Compile Include="Assets\Scripts\General\Character.cs" />
     <Compile Include="Assets\Scripts\Player\HurtAnimation.cs" />
+    <Compile Include="Assets\Scripts\Enemy\SnailSkillState.cs" />
     <Compile Include="Assets\AttackFinish.cs" />
     <Compile Include="Assets\Settings\InputSystem\PlayerInputControl.cs" />
     <Compile Include="Assets\Scripts\Utilities\Enums.cs" />

@@ -395,6 +395,7 @@
 "Assets/Scripts/Enemy/Enemy.cs"
 "Assets/Scripts/Enemy/Snail.cs"
 "Assets/Scripts/Enemy/SnailPatrolState.cs"
+"Assets/Scripts/Enemy/SnailSkillState.cs"
 "Assets/Scripts/General/Attack.cs"
 "Assets/Scripts/General/Character.cs"
 "Assets/Scripts/General/PhysicsCheck.cs"

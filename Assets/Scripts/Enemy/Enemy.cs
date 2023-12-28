@@ -33,6 +33,7 @@ public class Enemy : MonoBehaviour
     protected BaseState currentState;
     protected BaseState patrolState;
     protected BaseState chaseState;
+    protected BaseState skillState;
     protected virtual void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -63,7 +64,8 @@ public class Enemy : MonoBehaviour
     }
     public virtual void Move()
     {
-        if (!anim.GetAnimatorTransitionInfo(0).IsName("SnailPremove"))
+        if (!anim.GetAnimatorTransitionInfo(0).IsName("SnailPremove")
+        && !anim.GetAnimatorTransitionInfo(0).IsName("SnailRecover"))
             rb.velocity = new Vector2(currentSpeed * faceDir.x * Time.deltaTime, rb.velocity.y);
     }
     public void TimeCounter()  // Time Counter
@@ -95,6 +97,7 @@ public class Enemy : MonoBehaviour
         {
             NPCstate.Patrol => patrolState,
             NPCstate.Chase => chaseState,
+            NPCstate.Skill => skillState,
             _ => null
         };
         currentState.OnExit();

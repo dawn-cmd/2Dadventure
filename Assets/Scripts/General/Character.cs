@@ -12,6 +12,10 @@ public class Character : MonoBehaviour
     [Header("Invincible frame wounded")]
     public float invulnerableDuration;
     private float invulnerableCounter;
+    public void SetInvulnerableCounter(float counter)
+    {
+        invulnerableCounter = counter;
+    }
     public bool invulnerable;
     public UnityEvent<Transform> OnTakeDamage;
     public UnityEvent OnDie;
@@ -27,13 +31,17 @@ public class Character : MonoBehaviour
     public void TakeDamage(Attack attacker)
     {
         if (invulnerable) return;
-        // Debug.Log(attacker.damage);
+        Debug.Log(attacker.damage);
         if (currentHealth >= attacker.damage)
         {
             currentHealth -= attacker.damage;
             TriggerInvulnerable();
             // Take Hurt
-            OnTakeDamage?.Invoke(attacker.transform);
+            if (attacker.transform is not null && attacker.transform is UnityEngine.Transform)
+            {
+                Debug.Log("Is Transform");
+                OnTakeDamage?.Invoke(attacker.transform);
+            }
         }
         else
         {
