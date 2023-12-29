@@ -389,6 +389,8 @@
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.14f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/AttackFinish.cs"
 "Assets/Scripts/Enemy/BaseState.cs"
+"Assets/Scripts/Enemy/Bee.cs"
+"Assets/Scripts/Enemy/BeePatrolState.cs"
 "Assets/Scripts/Enemy/Boar.cs"
 "Assets/Scripts/Enemy/BoarChaseState.cs"
 "Assets/Scripts/Enemy/BoarPatrolState.cs"
