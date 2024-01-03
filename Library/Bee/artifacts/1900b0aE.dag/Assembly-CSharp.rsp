@@ -409,6 +409,9 @@
 "Assets/Scripts/Player/HurtAnimation.cs"
 "Assets/Scripts/Player/PlayerAnimation.cs"
 "Assets/Scripts/Player/PlayerController.cs"
+"Assets/Scripts/ScriptObject/CharacterEvent.cs"
+"Assets/Scripts/UI/PlayerStateBar.cs"
+"Assets/Scripts/UI/UIManager.cs"
 "Assets/Scripts/Utilities/Enums.cs"
 "Assets/Settings/InputSystem/PlayerInputControl.cs"
 -langversion:9.0

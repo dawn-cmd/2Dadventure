@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\General\PhysicsCheck.cs" />
+    <Compile Include="Assets\Scripts\ScriptObject\CharacterEvent.cs" />
     <Compile Include="Assets\Scripts\Enemy\BoarPatrolState.cs" />
     <Compile Include="Assets\Scripts\General\Attack.cs" />
     <Compile Include="Assets\Scripts\Enemy\BaseState.cs" />
@@ -84,7 +85,9 @@
     <Compile Include="Assets\Scripts\Enemy\Bee.cs" />
     <Compile Include="Assets\Scripts\Utilities\Enums.cs" />
     <Compile Include="Assets\Scripts\Enemy\SnailPatrolState.cs" />
+    <Compile Include="Assets\Scripts\UI\UIManager.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerAnimation.cs" />
+    <Compile Include="Assets\Scripts\UI\PlayerStateBar.cs" />
     <Compile Include="Assets\Scripts\General\AttackFinish.cs" />
   </ItemGroup>
   <ItemGroup>
