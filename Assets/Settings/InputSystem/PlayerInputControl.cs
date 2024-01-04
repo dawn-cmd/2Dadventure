@@ -222,7 +222,7 @@ public partial class @PlayerInputControl: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""3a5f9495-7cc5-4954-b3c8-f89d96f45a22"",
-                    ""path"": ""<Keyboard>/leftShift"",
+                    ""path"": ""<Keyboard>/leftCtrl"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",

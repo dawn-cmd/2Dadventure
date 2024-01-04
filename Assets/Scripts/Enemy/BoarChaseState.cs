@@ -7,7 +7,7 @@ public class BoarChaseState : BaseState
     public override void LogicUpdate()
     {
         if (currentEnemy.lostCounter <= 0) currentEnemy.switchState(NPCstate.Patrol);
-        if (currentEnemy.physicsCheck.touchLeftWall || !currentEnemy.physicsCheck.isGround)
+        if ((currentEnemy.physicsCheck.touchLeftWall && currentEnemy.transform.localScale.x > 0) || (currentEnemy.physicsCheck.touchRightWall && currentEnemy.transform.localScale.x < 0) || !currentEnemy.physicsCheck.isGround)
         {
             currentEnemy.transform.localScale = new Vector3(currentEnemy.faceDir.x, 1, 1);
         }
