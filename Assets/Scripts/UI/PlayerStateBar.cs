@@ -8,6 +8,8 @@ public class PlayerStateBar : MonoBehaviour
     public Image healthBar;
     public Image healthDelayBar;
     public Image powerBar;
+    private bool isRecovering;
+    private Character currentCharacter;
     /// <summary>
     /// Updates the health bar fill amount based on the given health percentage.
     /// </summary>
@@ -16,6 +18,11 @@ public class PlayerStateBar : MonoBehaviour
     public void OnHealthChanged(float healthPercent)
     {
         healthBar.fillAmount = healthPercent;
+    }
+    public void OnPowerChanged(Character character)
+    {
+        isRecovering = true;
+        currentCharacter = character;
     }
     private void Update()
     {
@@ -27,6 +34,15 @@ public class PlayerStateBar : MonoBehaviour
         else
         {
             healthDelayBar.fillAmount = healthBar.fillAmount;
+        }
+        if (isRecovering)
+        {
+            float percentage = currentCharacter.currentPower / currentCharacter.maxPower;
+            powerBar.fillAmount = percentage;
+            if (percentage >= 1)
+            {
+                isRecovering = false;
+            }
         }
     }
 }

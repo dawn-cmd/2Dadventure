@@ -10,6 +10,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public PlayerInputControl inputControl;
+    public Character character;
     private Rigidbody2D rb;
     private PhysicsCheck physicsCheck;
     private SpriteRenderer spriteRenderer;
@@ -33,12 +34,20 @@ public class PlayerController : MonoBehaviour
     [Header("States")]
     public bool isCrouch;
     public float HurtForce;
+    public float slideDis;
+    public float slideSpeed;
+    [Header("Power Cost")]
+    public int slidePowerCost;
+    public int attackPowerCost;
+    public int jumpPowerCost;
     public bool isHurt;
     public bool isDead;
     public bool isAttack;
+    public bool isSliding;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        character = GetComponent<Character>();
         playerAnimation = GetComponent<PlayerAnimation>();
 
         inputControl = new PlayerInputControl();
@@ -48,6 +57,7 @@ public class PlayerController : MonoBehaviour
 
         // Set of Attack
         inputControl.Gameplay.Attack.started += PlayerAttack;
+        inputControl.Gameplay.Slide.started += Slide;
 
         spriteRenderer = GetComponent<SpriteRenderer>();
 
@@ -67,6 +77,35 @@ public class PlayerController : MonoBehaviour
         };
         #endregion  
 
+    }
+
+    private void Slide(InputAction.CallbackContext obj)
+    {
+        if (!isSliding && physicsCheck.isGround && character.currentPower >= slidePowerCost)
+        {
+            isSliding = true;
+            var targetPos = new Vector3(transform.position.x + slideDis * transform.localScale.x, transform.position.y);
+            gameObject.layer = LayerMask.NameToLayer("Enemy");
+            StartCoroutine(TriggerSlide(targetPos));
+            GetComponent<Character>().OnConsumePower(slidePowerCost);
+        }
+    }
+
+    private IEnumerator TriggerSlide(Vector3 target)
+    {
+        do
+        {
+            yield return null;
+            if (!physicsCheck.isGround) break;
+            if ((physicsCheck.touchLeftWall && transform.localScale.x < 0) || (physicsCheck.touchRightWall && transform.localScale.x > 0))
+            {
+                isSliding = false;
+                break;
+            }
+            rb.MovePosition(new Vector2(transform.position.x + slideSpeed * transform.localScale.x, transform.position.y));
+        } while (Mathf.Abs(transform.position.x - target.x) > 0.1f);
+        isSliding = false;
+        gameObject.layer = LayerMask.NameToLayer("Player");
     }
 
     private void OnEnable()
@@ -122,10 +161,11 @@ public class PlayerController : MonoBehaviour
     private void Jump(InputAction.CallbackContext context)
     {
         if (physicsCheck.isGround == false && enableDoubleJump == false) return;
+        if (character.currentPower < jumpPowerCost) return;
         // Debug.Log("JUMP");
         if (physicsCheck.isGround == false) enableDoubleJump = false;
         rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
-
+        character.OnConsumePower(jumpPowerCost);
     }
     #region UnityEvent
     public void GetHurt(Transform attacker)
@@ -145,17 +185,29 @@ public class PlayerController : MonoBehaviour
 
     private void PlayerAttack(InputAction.CallbackContext context)
     {
+        if (character.currentPower < attackPowerCost) return;
         playerAnimation.PlayerAttack();
+        character.OnConsumePower(attackPowerCost);
         isAttack = true;
     }
     private void CheckState()
     {
         coll.sharedMaterial = physicsCheck.isGround ? normal : wall;
-        if (physicsCheck.onWall) {
+        if (physicsCheck.onWall)
+        {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.6f);
         }
-        else {
+        else
+        {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y);
+        }
+        if (isDead || isSliding)
+        {
+            gameObject.layer = LayerMask.NameToLayer("Enemy");
+        }
+        else
+        {
+            gameObject.layer = LayerMask.NameToLayer("Player");
         }
     }
 }

@@ -8,6 +8,9 @@ public class Character : MonoBehaviour
     [Header("Basic Properties")]
     public float maxHealth;
     public float currentHealth;
+    public float maxPower;
+    public float currentPower;
+    public float powerRecoverSpeed;
 
     [Header("Invincible frame wounded")]
     public float invulnerableDuration;
@@ -23,12 +26,18 @@ public class Character : MonoBehaviour
     private void Start()
     {
         currentHealth = maxHealth;
+        currentPower = maxPower;
         OnHealthChanged?.Invoke(this);
     }
     private void Update()
     {
         if (invulnerable) invulnerableCounter -= Time.deltaTime;
         if (invulnerableCounter <= 0) invulnerable = false;
+        if (currentPower < maxPower)
+        {
+            currentPower += powerRecoverSpeed * Time.deltaTime;
+            OnHealthChanged?.Invoke(this);
+        }
     }
     public void TakeDamage(Attack attacker)
     {
@@ -58,5 +67,10 @@ public class Character : MonoBehaviour
         if (invulnerable) return;
         invulnerable = true;
         invulnerableCounter = invulnerableDuration;
+    }
+    public void OnConsumePower(int cost)
+    {
+        currentPower -= cost;
+        OnHealthChanged?.Invoke(this);
     }
 }
