@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\General\PhysicsCheck.cs" />
+    <Compile Include="Assets\Scripts\ScriptObject\PlayAudioEvent.cs" />
     <Compile Include="Assets\Scripts\ScriptObject\CharacterEvent.cs" />
     <Compile Include="Assets\Scripts\Enemy\BoarPatrolState.cs" />
     <Compile Include="Assets\Scripts\General\Attack.cs" />
@@ -78,10 +79,12 @@
     <Compile Include="Assets\Scripts\General\Character.cs" />
     <Compile Include="Assets\Scripts\ScriptObject\VoidEventSO.cs" />
     <Compile Include="Assets\FastScriptReload\Samples\Basic\Scripts\Graph.cs" />
+    <Compile Include="Assets\Scripts\Audio\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Player\HurtAnimation.cs" />
     <Compile Include="Assets\Scripts\Enemy\SnailSkillState.cs" />
     <Compile Include="Assets\FastScriptReload\Samples\Basic\Scripts\FunctionLibrary.cs" />
     <Compile Include="Assets\Scripts\Enemy\BeePatrolState.cs" />
+    <Compile Include="Assets\Scripts\Audio\AudioDefinition.cs" />
     <Compile Include="Assets\Scripts\Enemy\BeeChaseState.cs" />
     <Compile Include="Assets\Settings\InputSystem\PlayerInputControl.cs" />
     <Compile Include="Assets\Scripts\Enemy\Bee.cs" />
@@ -105,6 +108,7 @@
     <None Include="Assets\FastScriptReload\Plugins\Roslyn\Microsoft.CSharp.dll.IMPORTANT.txt.txt" />
     <None Include="Assets\FastScriptReload\Samples\Basic\Point\Point Surface.shader" />
     <None Include="Assets\FastScriptReload\Plugins\Roslyn\2019+\Microsoft.CodeAnalysis.dll" />
+    <None Include="Assets\Audio\FREE CASUAL MUSIC PACK\WELCOME_CGMUSIC.txt" />
     <None Include="Assets\FastScriptReload\Plugins\Roslyn\2021+\System.Runtime.CompilerServices.Unsafe.xml" />
     <None Include="Assets\FastScriptReload\Plugins\Roslyn\2021+\RoslynLicense.txt" />
     <None Include="Assets\FastScriptReload\Plugins\Roslyn\2021+\System.Reflection.Metadata.xml" />

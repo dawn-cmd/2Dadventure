@@ -41,7 +41,7 @@ public class Enemy : MonoBehaviour
         anim = GetComponent<Animator>();
         physicsCheck = GetComponent<PhysicsCheck>();
         currentSpeed = normalSpeed;
-        waitTimeCounter = waitTime;
+        // waitTimeCounter = waitTime;
         spawnPoint = transform.position;
     }
     private void OnEnable()
