@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         character = GetComponent<Character>();
         playerAnimation = GetComponent<PlayerAnimation>();
-
+        inputDirection = Vector2.zero;
         inputControl = new PlayerInputControl();
 
         // Set of Jump
