@@ -165,6 +165,7 @@ public class PlayerController : MonoBehaviour
         // Debug.Log("JUMP");
         if (physicsCheck.isGround == false) enableDoubleJump = false;
         rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
+        GetComponent<AudioDefinition>().PlayAudioClip();
         character.OnConsumePower(jumpPowerCost);
     }
     #region UnityEvent

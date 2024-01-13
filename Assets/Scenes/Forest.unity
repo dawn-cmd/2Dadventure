@@ -134,6 +134,8 @@ GameObject:
   - component: {fileID: 47617105}
   - component: {fileID: 47617104}
   - component: {fileID: 47617103}
+  - component: {fileID: 47617106}
+  - component: {fileID: 47617107}
   m_Layer: 0
   m_Name: Chest2
   m_TagString: Interactable
@@ -253,6 +255,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &47617106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 47617102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c08a2070fa12a0c41be6878f3e44bfbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openSprite: {fileID: -1941910974, guid: 5d5edf82c7f423d4d96828049cdc1ec4, type: 3}
+  closedSprite: {fileID: 417308403, guid: 5d5edf82c7f423d4d96828049cdc1ec4, type: 3}
+  isDone: 0
+--- !u!114 &47617107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 47617102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2994ea80892dab6489664bff4fd9ef45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playAudioEvent: {fileID: 11400000, guid: 8ef320895e6419b4c84cb9ac26b27bce, type: 2}
+  clip: {fileID: 8300000, guid: 81652031b64c342cc8dbc59c138d77c5, type: 3}
+  playOnStart: 0
 --- !u!1 &173212121
 GameObject:
   m_ObjectHideFlags: 0
@@ -314,13 +346,15 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.781429, y: 14.257063}
-      - {x: -21.984104, y: 13.683921}
-      - {x: -21.393627, y: -6.0436535}
-      - {x: 1.6602687, y: -5.7842636}
-      - {x: 12.335791, y: -5.7199187}
-      - {x: 23.6261, y: 0.6820612}
-      - {x: 24.044619, y: 13.95089}
+    - - {x: -0.056065857, y: 26.239733}
+      - {x: -23.272564, y: 24.764668}
+      - {x: -36.146484, y: -12.8080635}
+      - {x: -0.2724235, y: -18.862122}
+      - {x: 0.44244915, y: -18.938066}
+      - {x: 1.9256738, y: -18.677385}
+      - {x: 8.320071, y: -17.721634}
+      - {x: 30.093273, y: -13.433424}
+      - {x: 29.20348, y: 20.61125}
   m_UseDelaunayMesh: 0
 --- !u!4 &173212123
 Transform:
@@ -337,6 +371,97 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &361059004
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 361059006}
+  - component: {fileID: 361059005}
+  - component: {fileID: 361059007}
+  m_Layer: 0
+  m_Name: Teleport
+  m_TagString: Interactable
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &361059005
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361059004}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -6.04, y: 5.56}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.98, y: 3.13}
+  m_EdgeRadius: 0
+--- !u!4 &361059006
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361059004}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &361059007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361059004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfa6d8e4deef604448f62ed8f07d6cd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teleportPosition: {x: 35.84, y: 6.06, z: 0}
 --- !u!1 &376089780
 GameObject:
   m_ObjectHideFlags: 0
@@ -2097,7 +2222,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1051874681}
-  - component: {fileID: 1051874680}
+  - component: {fileID: 1051874682}
   m_Layer: 0
   m_Name: BGM
   m_TagString: Untagged
@@ -2105,21 +2230,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1051874680
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1051874679}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2994ea80892dab6489664bff4fd9ef45, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playAudioEvent: {fileID: 11400000, guid: b0c83f3a505088a40af993ae2db66014, type: 2}
-  clip: {fileID: 8300000, guid: b90b002a8cd137243a4b5e955f3b220f, type: 3}
-  playOnStart: 1
 --- !u!4 &1051874681
 Transform:
   m_ObjectHideFlags: 0
@@ -2135,6 +2245,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1051874682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1051874679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2994ea80892dab6489664bff4fd9ef45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playAudioEvent: {fileID: 11400000, guid: b0c83f3a505088a40af993ae2db66014, type: 2}
+  clip: {fileID: 8300000, guid: 390e7a99cb0560f49a1dd255b0e3b819, type: 3}
+  playOnStart: 1
 --- !u!1 &1120879318
 GameObject:
   m_ObjectHideFlags: 0
@@ -5452,3 +5577,4 @@ SceneRoots:
   - {fileID: 1491426138}
   - {fileID: 47617105}
   - {fileID: 1051874681}
+  - {fileID: 361059006}

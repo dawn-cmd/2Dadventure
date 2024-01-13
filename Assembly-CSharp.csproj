@@ -59,7 +59,7 @@
     <UnityVersion>2022.3.14f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Users\25956\.vscode\extensions\visualstudiotoolsforunity.vstuc-0.9.3\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="C:\Users\25956\.vscode\extensions\visualstudiotoolsforunity.vstuc-0.9.4\Analyzers\Microsoft.Unity.Analyzers.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.14f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.14f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
@@ -76,8 +76,10 @@
     <Compile Include="Assets\Scripts\Enemy\Boar.cs" />
     <Compile Include="Assets\Scripts\Enemy\Snail.cs" />
     <Compile Include="Assets\Scripts\Player\Sign.cs" />
+    <Compile Include="Assets\Scripts\General\Chest.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy.cs" />
     <Compile Include="Assets\Scripts\General\Character.cs" />
+    <Compile Include="Assets\Scripts\Utilities\IInteractable.cs" />
     <Compile Include="Assets\Scripts\ScriptObject\VoidEventSO.cs" />
     <Compile Include="Assets\FastScriptReload\Samples\Basic\Scripts\Graph.cs" />
     <Compile Include="Assets\Scripts\Audio\AudioManager.cs" />
@@ -88,10 +90,12 @@
     <Compile Include="Assets\Scripts\Audio\AudioDefinition.cs" />
     <Compile Include="Assets\Scripts\Enemy\BeeChaseState.cs" />
     <Compile Include="Assets\Settings\InputSystem\PlayerInputControl.cs" />
+    <Compile Include="Assets\Scripts\Transition\SceneLoader.cs" />
     <Compile Include="Assets\Scripts\Enemy\Bee.cs" />
     <Compile Include="Assets\Scripts\Utilities\Enums.cs" />
     <Compile Include="Assets\Scripts\Enemy\SnailPatrolState.cs" />
     <Compile Include="Assets\Scripts\UI\UIManager.cs" />
+    <Compile Include="Assets\Scripts\Transition\TeleportPoint.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerAnimation.cs" />
     <Compile Include="Assets\Scripts\UI\PlayerStateBar.cs" />
     <Compile Include="Assets\Scripts\General\AttackFinish.cs" />

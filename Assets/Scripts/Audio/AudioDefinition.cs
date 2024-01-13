@@ -9,7 +9,11 @@ public class AudioDefinition : MonoBehaviour
     public bool playOnStart;
     private void OnEnable()
     {
-        if (playOnStart) PlayAudioClip();
+        if (playOnStart)
+        {
+            Debug.Log("PlayOnStart");
+            PlayAudioClip();
+        }
     }
     public void PlayAudioClip()
     {

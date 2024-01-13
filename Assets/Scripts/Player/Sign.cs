@@ -12,12 +12,22 @@ public class Sign : MonoBehaviour
     private Animator anim;
     public Transform playerTrans;
     public GameObject signSprite;
+    private IInteractable objItem;
     private bool canPress;
     private void Awake()
     {
         anim = signSprite.GetComponent<Animator>();
         playerInput = new PlayerInputControl();
+        playerInput.Gameplay.Confirm.started += OnConfirm;
         playerInput.Enable();
+    }
+
+    private void OnConfirm(InputAction.CallbackContext context)
+    {
+        if (canPress)
+        {
+            objItem.TriggerAction();
+        }
     }
 
     private void OnEnable()
@@ -53,6 +63,7 @@ public class Sign : MonoBehaviour
         if (other.CompareTag("Interactable"))
         {
             canPress = true;
+            objItem = other.GetComponent<IInteractable>();
         }
     }
     private void OnTriggerExit2D(Collider2D other)
