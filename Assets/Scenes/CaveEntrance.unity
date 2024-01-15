@@ -2668,7 +2668,7 @@ Tilemap:
       - {fileID: -1842585616, guid: e680fb1e30d138f4bacfa9e3fceab008, type: 3}
       - {fileID: 32411030, guid: e680fb1e30d138f4bacfa9e3fceab008, type: 3}
       - {fileID: -321374932, guid: e680fb1e30d138f4bacfa9e3fceab008, type: 3}
-      m_AnimationSpeed: 7
+      m_AnimationSpeed: 7.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 2, y: -42, z: 0}
@@ -3009,7 +3009,7 @@ Tilemap:
       - {fileID: 196922201, guid: e680fb1e30d138f4bacfa9e3fceab008, type: 3}
       - {fileID: 1375674165, guid: e680fb1e30d138f4bacfa9e3fceab008, type: 3}
       - {fileID: -1823218349, guid: e680fb1e30d138f4bacfa9e3fceab008, type: 3}
-      m_AnimationSpeed: 7.0000005
+      m_AnimationSpeed: 7
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 0, y: -31, z: 0}
@@ -3053,7 +3053,7 @@ Tilemap:
       - {fileID: -1151070706, guid: e680fb1e30d138f4bacfa9e3fceab008, type: 3}
       - {fileID: 441675627, guid: e680fb1e30d138f4bacfa9e3fceab008, type: 3}
       - {fileID: -1977674055, guid: e680fb1e30d138f4bacfa9e3fceab008, type: 3}
-      m_AnimationSpeed: 7
+      m_AnimationSpeed: 7.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 1, y: -30, z: 0}
@@ -5307,7 +5307,7 @@ Tilemap:
       - {fileID: -1842585616, guid: e680fb1e30d138f4bacfa9e3fceab008, type: 3}
       - {fileID: 32411030, guid: e680fb1e30d138f4bacfa9e3fceab008, type: 3}
       - {fileID: -321374932, guid: e680fb1e30d138f4bacfa9e3fceab008, type: 3}
-      m_AnimationSpeed: 7.0000005
+      m_AnimationSpeed: 7
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 4, y: -6, z: 0}
@@ -5318,7 +5318,7 @@ Tilemap:
       - {fileID: 196922201, guid: e680fb1e30d138f4bacfa9e3fceab008, type: 3}
       - {fileID: 1375674165, guid: e680fb1e30d138f4bacfa9e3fceab008, type: 3}
       - {fileID: -1823218349, guid: e680fb1e30d138f4bacfa9e3fceab008, type: 3}
-      m_AnimationSpeed: 7
+      m_AnimationSpeed: 7.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 2, y: -5, z: 0}
@@ -5461,7 +5461,7 @@ Tilemap:
       - {fileID: -1151070706, guid: e680fb1e30d138f4bacfa9e3fceab008, type: 3}
       - {fileID: 441675627, guid: e680fb1e30d138f4bacfa9e3fceab008, type: 3}
       - {fileID: -1977674055, guid: e680fb1e30d138f4bacfa9e3fceab008, type: 3}
-      m_AnimationSpeed: 7.0000005
+      m_AnimationSpeed: 7
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 3, y: -1, z: 0}
@@ -5714,7 +5714,7 @@ Tilemap:
       - {fileID: 196922201, guid: e680fb1e30d138f4bacfa9e3fceab008, type: 3}
       - {fileID: 1375674165, guid: e680fb1e30d138f4bacfa9e3fceab008, type: 3}
       - {fileID: -1823218349, guid: e680fb1e30d138f4bacfa9e3fceab008, type: 3}
-      m_AnimationSpeed: 7.0000005
+      m_AnimationSpeed: 7
       m_AnimationTimeOffset: 0
       m_Flags: 0
   m_TileAssetArray:
@@ -10811,17 +10811,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1554237344851191342, guid: c8c0a9549231fe0418a89517e5a52e93, type: 3}
+      propertyPath: wait
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5705708447985729071, guid: c8c0a9549231fe0418a89517e5a52e93, type: 3}
       propertyPath: m_Name
       value: Boar
       objectReference: {fileID: 0}
     - target: {fileID: 6747659926766082203, guid: c8c0a9549231fe0418a89517e5a52e93, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.89
+      value: 29.25
       objectReference: {fileID: 0}
     - target: {fileID: 6747659926766082203, guid: c8c0a9549231fe0418a89517e5a52e93, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.96
+      value: 6.24
       objectReference: {fileID: 0}
     - target: {fileID: 6747659926766082203, guid: c8c0a9549231fe0418a89517e5a52e93, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10854,6 +10858,14 @@ PrefabInstance:
     - target: {fileID: 6747659926766082203, guid: c8c0a9549231fe0418a89517e5a52e93, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7535672606859211022, guid: c8c0a9549231fe0418a89517e5a52e93, type: 3}
+      propertyPath: bottomOffset.x
+      value: -1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7535672606859211022, guid: c8c0a9549231fe0418a89517e5a52e93, type: 3}
+      propertyPath: groundLayer.m_Bits
+      value: 64
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

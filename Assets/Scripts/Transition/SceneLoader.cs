@@ -1,12 +1,17 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
+    public Transform playerTrans;
+    public Vector3 firstPos;
     public SceneLoadEventSO LoadEventSO;
     public GameSceneSO firstLoadScene;
     private GameSceneSO sceneToLoad;
@@ -14,11 +19,19 @@ public class SceneLoader : MonoBehaviour
     private Vector3 posToGo;
     private bool fadeScreen;
     public float fadeDuration;
+    private bool isLoading;
+    [Header("广播")]
+    public VoidEventSO afterSceneLoadedEvent;
     private void Awake()
     {
         // Addressables.LoadSceneAsync(firstLoadScene.sceneRef, LoadSceneMode.Additive);
-        currentScene = firstLoadScene;
-        currentScene.sceneRef.LoadSceneAsync(LoadSceneMode.Additive, true);
+        // currentScene = firstLoadScene;
+        // currentScene.sceneRef.LoadSceneAsync(LoadSceneMode.Additive, true);
+
+    }
+    private void Start()
+    {
+        NewGame();
     }
     private void OnEnable()
     {
@@ -28,14 +41,28 @@ public class SceneLoader : MonoBehaviour
     {
         LoadEventSO.LoadRequestEvent -= OnLoadRequestEvent;
     }
+    private void NewGame()
+    {
+        // sceneToLoad = firstLoadScene;
+        Debug.Log(firstLoadScene);
+        Debug.Log(firstPos);
+        OnLoadRequestEvent(firstLoadScene, firstPos, true);
+    }
 
     private void OnLoadRequestEvent(GameSceneSO sceneToLoad, Vector3 posToGo, bool fadeScreen)
     {
+        Debug.Log("OnLoadRequestEvent");
+        if (isLoading) return;
+        isLoading = true;
         this.sceneToLoad = sceneToLoad;
         this.posToGo = posToGo;
         this.fadeScreen = fadeScreen;
-        Debug.Log(sceneToLoad.sceneRef.SubObjectName);
-        if (currentScene.sceneRef.SubObjectName != null)
+        Debug.Log(this.sceneToLoad);
+        if (currentScene == null)
+        {
+            LoadNewScene();
+        }
+        else
         {
             StartCoroutine(UnloadPreviousScene());
         }
@@ -48,11 +75,26 @@ public class SceneLoader : MonoBehaviour
         }
         yield return new WaitForSeconds(fadeDuration);
         yield return currentScene.sceneRef.UnLoadScene();
+        playerTrans.gameObject.SetActive(false);
         LoadNewScene();
     }
 
     private void LoadNewScene()
     {
-        sceneToLoad.sceneRef.LoadSceneAsync(LoadSceneMode.Additive, true);
+        var loadingOption = sceneToLoad.sceneRef.LoadSceneAsync(LoadSceneMode.Additive, true);
+        loadingOption.Completed += OnLoadCompleted;
+    }
+
+    private void OnLoadCompleted(AsyncOperationHandle<SceneInstance> handle)
+    {
+        currentScene = sceneToLoad;
+        playerTrans.position = posToGo;
+        playerTrans.gameObject.SetActive(true);
+        if (fadeScreen)
+        {
+
+        }
+        isLoading = false;
+        afterSceneLoadedEvent.Raise();
     }
 }

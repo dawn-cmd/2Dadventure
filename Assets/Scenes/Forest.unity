@@ -461,7 +461,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfa6d8e4deef604448f62ed8f07d6cd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teleportPosition: {x: 35.84, y: 6.06, z: 0}
+  LoadEventSO: {fileID: 11400000, guid: a78eee0125e808841bfa9d3fdaa83323, type: 2}
+  teleportPosition: {x: 36.13, y: 6.14, z: 0}
+  sceneToGo: {fileID: 11400000, guid: c02dac9cbc3daa641a1910b1a4f85f26, type: 2}
 --- !u!1 &376089780
 GameObject:
   m_ObjectHideFlags: 0

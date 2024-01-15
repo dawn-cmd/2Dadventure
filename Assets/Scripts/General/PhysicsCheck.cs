@@ -48,7 +48,7 @@ public class PhysicsCheck : MonoBehaviour
         touchLeftWall = Physics2D.OverlapCircle((Vector2)transform.position + new Vector2(leftOffset.x, leftOffset.y), checkRadius, groundLayer);
         touchRightWall = Physics2D.OverlapCircle((Vector2)transform.position + new Vector2(rightOffset.x, rightOffset.y), checkRadius, groundLayer);
         // Check Ground
-        isGround = Physics2D.OverlapCircle((Vector2)transform.position + new Vector2(bottomOffset.x, bottomOffset.y + (onWall ? 0.5f : 0f)), checkRadius, groundLayer);
+        isGround = Physics2D.OverlapCircle((Vector2)transform.position + new Vector2(bottomOffset.x * transform.localScale.x, bottomOffset.y + (onWall ? 0.5f : 0f)), checkRadius, groundLayer);
         if (isPlayer)
         {
             if (isGround || onWall) playerController.enableDoubleJump = true;

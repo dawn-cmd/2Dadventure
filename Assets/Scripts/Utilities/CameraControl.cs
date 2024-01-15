@@ -9,6 +9,7 @@ public class CameraControl : MonoBehaviour
     private CinemachineConfiner2D confiner2D;
     public CinemachineImpulseSource impulseSource;
     public VoidEventSO cameraShakeEvent;
+    public VoidEventSO afterSceneLoadedEvent;
     private void Awake()
     {
         confiner2D = GetComponent<CinemachineConfiner2D>();
@@ -16,10 +17,18 @@ public class CameraControl : MonoBehaviour
     private void OnEnable()
     {
         cameraShakeEvent.OnEventRaised += OnCameraShakeEvent;
+        afterSceneLoadedEvent.OnEventRaised += OnAfterSceneLoadedEvent;
     }
+
+    private void OnAfterSceneLoadedEvent()
+    {
+        GetNewCameraBounds();
+    }
+
     private void OnDisable()
     {
         cameraShakeEvent.OnEventRaised -= OnCameraShakeEvent;
+        afterSceneLoadedEvent.OnEventRaised -= OnAfterSceneLoadedEvent;
     }
 
     private void OnCameraShakeEvent()
@@ -27,9 +36,10 @@ public class CameraControl : MonoBehaviour
         impulseSource.GenerateImpulse();
     }
 
-    private void Start() {
-        GetNewCameraBounds();
-    }
+    // private void Start()
+    // {
+    //     GetNewCameraBounds();
+    // }
     private void GetNewCameraBounds()
     {
         var obj = GameObject.FindGameObjectWithTag("Bounds");

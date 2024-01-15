@@ -35,6 +35,10 @@ public class Sign : MonoBehaviour
         InputSystem.onActionChange += OnActionChange;
     }
 
+    private void OnDisable()
+    {
+        canPress = false;
+    }
     private void OnActionChange(object obj, InputActionChange actionChange)
     {
         if (actionChange == InputActionChange.ActionStarted)
