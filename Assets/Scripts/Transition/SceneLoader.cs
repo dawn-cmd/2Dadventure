@@ -22,6 +22,7 @@ public class SceneLoader : MonoBehaviour
     private bool isLoading;
     [Header("广播")]
     public VoidEventSO afterSceneLoadedEvent;
+    public FadeEventSO fadeEvent;
     private void Awake()
     {
         // Addressables.LoadSceneAsync(firstLoadScene.sceneRef, LoadSceneMode.Additive);
@@ -71,7 +72,7 @@ public class SceneLoader : MonoBehaviour
     {
         if (fadeScreen)
         {
-
+            fadeEvent.FadeIn(fadeDuration);
         }
         yield return new WaitForSeconds(fadeDuration);
         yield return currentScene.sceneRef.UnLoadScene();
@@ -92,7 +93,7 @@ public class SceneLoader : MonoBehaviour
         playerTrans.gameObject.SetActive(true);
         if (fadeScreen)
         {
-
+            fadeEvent.FadeOut(fadeDuration);
         }
         isLoading = false;
         afterSceneLoadedEvent.Raise();
