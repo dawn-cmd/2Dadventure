@@ -5,7 +5,7 @@
 [Bb]uilds/*
 Assets/AssetStoreTools*
 Assets/Art Assets/*
-
+Assets/Font/*
 # Visual Studio cache directory
 *.vs/*
 *.vscode/*

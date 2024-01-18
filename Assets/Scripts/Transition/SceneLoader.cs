@@ -47,7 +47,7 @@ public class SceneLoader : MonoBehaviour
         // sceneToLoad = firstLoadScene;
         Debug.Log(firstLoadScene);
         Debug.Log(firstPos);
-        OnLoadRequestEvent(firstLoadScene, firstPos, true);
+        LoadEventSO.RaiseLoadRequestEvent(firstLoadScene, firstPos, true);
     }
 
     private void OnLoadRequestEvent(GameSceneSO sceneToLoad, Vector3 posToGo, bool fadeScreen)

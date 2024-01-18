@@ -8,11 +8,24 @@ public class UIManager : MonoBehaviour
     public PlayerStateBar playerStateBar;
     [Header("事件监听")]
     public CharacterEvent healthEvent;
-    private void OnEnable() {
+    public SceneLoadEventSO loadScene;
+    private void OnEnable()
+    {
         healthEvent.OnEventRaised += OnHealthEvent;
+        loadScene.LoadRequestEvent += OnLoadRequest;
     }
-    private void OnDisable() {
+    private void OnDisable()
+    {
         healthEvent.OnEventRaised -= OnHealthEvent;
+        loadScene.LoadRequestEvent -= OnLoadRequest;
+    }
+
+    private void OnLoadRequest(GameSceneSO sceneToLoad, Vector3 arg1, bool arg2)
+    {
+        if (sceneToLoad.sceneType == SceneType.Menu)
+            playerStateBar.gameObject.SetActive(false);
+        else
+            playerStateBar.gameObject.SetActive(true);
     }
 
     private void OnHealthEvent(Character character)
