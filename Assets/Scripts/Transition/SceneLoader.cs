@@ -12,8 +12,13 @@ public class SceneLoader : MonoBehaviour
 {
     public Transform playerTrans;
     public Vector3 firstPos;
+    public Vector3 menuPos;
+    [Header("事件监听")]
     public SceneLoadEventSO LoadEventSO;
+    public VoidEventSO newGame;
+
     public GameSceneSO firstLoadScene;
+    public GameSceneSO menuScene;
     private GameSceneSO sceneToLoad;
     [SerializeField] private GameSceneSO currentScene;
     private Vector3 posToGo;
@@ -21,6 +26,7 @@ public class SceneLoader : MonoBehaviour
     public float fadeDuration;
     private bool isLoading;
     [Header("广播")]
+    public SceneLoadEventSO unloadedSceneEvent;
     public VoidEventSO afterSceneLoadedEvent;
     public FadeEventSO fadeEvent;
     private void Awake()
@@ -32,11 +38,13 @@ public class SceneLoader : MonoBehaviour
     }
     private void Start()
     {
-        NewGame();
+        // NewGame();
+        LoadEventSO.RaiseLoadRequestEvent(menuScene, menuPos, true);
     }
     private void OnEnable()
     {
         LoadEventSO.LoadRequestEvent += OnLoadRequestEvent;
+        newGame.OnEventRaised += NewGame;
     }
     private void OnDisable()
     {
@@ -44,9 +52,7 @@ public class SceneLoader : MonoBehaviour
     }
     private void NewGame()
     {
-        // sceneToLoad = firstLoadScene;
-        Debug.Log(firstLoadScene);
-        Debug.Log(firstPos);
+        sceneToLoad = firstLoadScene;
         LoadEventSO.RaiseLoadRequestEvent(firstLoadScene, firstPos, true);
     }
 
@@ -75,6 +81,7 @@ public class SceneLoader : MonoBehaviour
             fadeEvent.FadeIn(fadeDuration);
         }
         yield return new WaitForSeconds(fadeDuration);
+        unloadedSceneEvent.RaiseLoadRequestEvent(sceneToLoad, posToGo, true);
         yield return currentScene.sceneRef.UnLoadScene();
         playerTrans.gameObject.SetActive(false);
         LoadNewScene();
@@ -96,6 +103,7 @@ public class SceneLoader : MonoBehaviour
             fadeEvent.FadeOut(fadeDuration);
         }
         isLoading = false;
-        afterSceneLoadedEvent.Raise();
+        if (currentScene.sceneType != SceneType.Menu)
+            afterSceneLoadedEvent.Raise();
     }
 }

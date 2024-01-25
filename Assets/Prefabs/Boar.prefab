@@ -232,7 +232,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5039c5afa42e25419463e5db7e3afe5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
+  newGameEvent: {fileID: 11400000, guid: f36001d32efaf9045b291329cb395629, type: 2}
+  maxHealth: 100
   currentHealth: 0
   maxPower: 0
   currentPower: 0

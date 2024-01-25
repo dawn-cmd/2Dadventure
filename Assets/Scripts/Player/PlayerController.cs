@@ -9,6 +9,10 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class PlayerController : MonoBehaviour
 {
+    [Header("事件监听")]
+    public SceneLoadEventSO loadEventSO;
+    public VoidEventSO afterSceneLoadedEvent;
+
     public PlayerInputControl inputControl;
     public Character character;
     private Rigidbody2D rb;
@@ -107,14 +111,28 @@ public class PlayerController : MonoBehaviour
         isSliding = false;
         gameObject.layer = LayerMask.NameToLayer("Player");
     }
-
     private void OnEnable()
     {
         inputControl.Enable();
+        loadEventSO.LoadRequestEvent += OnLoadRequestEvent;
+        afterSceneLoadedEvent.OnEventRaised += OnAfterSceneLoadedEvent;
     }
+
+    
+
     private void OnDisable()
     {
         inputControl.Disable();
+        loadEventSO.LoadRequestEvent -= OnLoadRequestEvent;
+        afterSceneLoadedEvent.OnEventRaised -= OnAfterSceneLoadedEvent;
+    }
+    private void OnLoadRequestEvent(GameSceneSO arg0, Vector3 arg1, bool arg2)
+    {
+        inputControl.Gameplay.Disable();
+    }
+    private void OnAfterSceneLoadedEvent()
+    {
+        inputControl.Gameplay.Enable();
     }
     private void Update()
     {
@@ -127,11 +145,12 @@ public class PlayerController : MonoBehaviour
         if (!isHurt && !isAttack) Move();
     }
 
-    // // Test
     // private void OnTriggerStay2D(Collider2D other)
     // {
     //     Debug.Log(other.name);
     // }
+
+
 
     public void Move()
     {

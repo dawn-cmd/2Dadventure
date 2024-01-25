@@ -388,7 +388,7 @@ Transform:
   m_GameObject: {fileID: 120075512}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 7.1, z: -10}
+  m_LocalPosition: {x: -5.89, y: 4.04, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -434,7 +434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976ee67d6274e93498bea6cb178ad70a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  impulseSource: {fileID: 0}
+  impulseSource: {fileID: 1725168703}
   cameraShakeEvent: {fileID: 11400000, guid: af06591112a688e4fbf598cedb3c2d14, type: 2}
   afterSceneLoadedEvent: {fileID: 11400000, guid: c8e56d776c0bdba4ca7ca93147c126c8, type: 2}
 --- !u!114 &120075518
@@ -930,7 +930,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 7.1, z: -10}
+  m_LocalPosition: {x: -5.89, y: 4.04, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1448,7 +1448,7 @@ Transform:
   m_GameObject: {fileID: 749462699}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 7.1, z: 0}
+  m_LocalPosition: {x: -5.89, y: 4.04, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1530,6 +1530,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06552f212fa69584a95c3d98d2959732, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadEventSO: {fileID: 11400000, guid: a78eee0125e808841bfa9d3fdaa83323, type: 2}
+  afterSceneLoadedEvent: {fileID: 11400000, guid: c8e56d776c0bdba4ca7ca93147c126c8, type: 2}
   character: {fileID: 0}
   inputDirection: {x: 0, y: 0}
   speed: 300
@@ -1619,6 +1621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5039c5afa42e25419463e5db7e3afe5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newGameEvent: {fileID: 11400000, guid: f36001d32efaf9045b291329cb395629, type: 2}
   maxHealth: 100
   currentHealth: 0
   maxPower: 10
@@ -2666,7 +2669,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1430421240
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3094,7 +3097,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStateBar: {fileID: 1430421241}
   healthEvent: {fileID: 11400000, guid: 1e888177ce5af174091ab97b7604891e, type: 2}
-  loadScene: {fileID: 11400000, guid: a78eee0125e808841bfa9d3fdaa83323, type: 2}
+  loadScene: {fileID: 11400000, guid: 9fedcc6dc6a773240904446963e87be1, type: 2}
 --- !u!4 &2003829891
 Transform:
   m_ObjectHideFlags: 0
@@ -3140,11 +3143,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTrans: {fileID: 749462701}
-  firstPos: {x: 0, y: 7.1, z: 0}
+  firstPos: {x: -5.89, y: 4.04, z: 0}
+  menuPos: {x: 0, y: 7.1, z: 0}
   LoadEventSO: {fileID: 11400000, guid: a78eee0125e808841bfa9d3fdaa83323, type: 2}
-  firstLoadScene: {fileID: 11400000, guid: 2fd628c7610190d479e84534b0a853ab, type: 2}
+  newGame: {fileID: 11400000, guid: f36001d32efaf9045b291329cb395629, type: 2}
+  firstLoadScene: {fileID: 11400000, guid: 79df28eb9a74a664b92fd00c9407778e, type: 2}
+  menuScene: {fileID: 11400000, guid: 2fd628c7610190d479e84534b0a853ab, type: 2}
   currentScene: {fileID: 0}
   fadeDuration: 0.5
+  unloadedSceneEvent: {fileID: 11400000, guid: 9fedcc6dc6a773240904446963e87be1, type: 2}
   afterSceneLoadedEvent: {fileID: 11400000, guid: c8e56d776c0bdba4ca7ca93147c126c8, type: 2}
   fadeEvent: {fileID: 11400000, guid: 50825d4ad60c98f4eaba469d12dd335b, type: 2}
 --- !u!4 &2035849455

@@ -5,6 +5,8 @@ using UnityEngine.Events;
 
 public class Character : MonoBehaviour
 {
+    [Header("事件监听")]
+    public VoidEventSO newGameEvent;
     [Header("Basic Properties")]
     public float maxHealth;
     public float currentHealth;
@@ -23,11 +25,23 @@ public class Character : MonoBehaviour
     public UnityEvent<Character> OnHealthChanged;
     public UnityEvent<Transform> OnTakeDamage;
     public UnityEvent OnDie;
-    private void Start()
+    private void NewGame()
     {
         currentHealth = maxHealth;
         currentPower = maxPower;
         OnHealthChanged?.Invoke(this);
+    }
+    private void OnEnable()
+    {
+        newGameEvent.OnEventRaised += NewGame;
+    }
+    private void OnDisable()
+    {
+        newGameEvent.OnEventRaised -= NewGame;
+    }
+    private void Start()
+    {
+        currentHealth = maxHealth;
     }
     private void Update()
     {
