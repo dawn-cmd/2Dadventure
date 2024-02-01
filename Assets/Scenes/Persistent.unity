@@ -849,7 +849,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -3147,7 +3147,7 @@ MonoBehaviour:
   menuPos: {x: 0, y: 7.1, z: 0}
   LoadEventSO: {fileID: 11400000, guid: a78eee0125e808841bfa9d3fdaa83323, type: 2}
   newGame: {fileID: 11400000, guid: f36001d32efaf9045b291329cb395629, type: 2}
-  firstLoadScene: {fileID: 11400000, guid: 79df28eb9a74a664b92fd00c9407778e, type: 2}
+  firstLoadScene: {fileID: 11400000, guid: c02dac9cbc3daa641a1910b1a4f85f26, type: 2}
   menuScene: {fileID: 11400000, guid: 2fd628c7610190d479e84534b0a853ab, type: 2}
   currentScene: {fileID: 0}
   fadeDuration: 0.5

@@ -362,7 +362,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newGameEvent: {fileID: 11400000, guid: f36001d32efaf9045b291329cb395629, type: 2}
-  maxHealth: 10
+  maxHealth: 30
   currentHealth: 0
   maxPower: 0
   currentPower: 0
