@@ -3183,6 +3183,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2035849455}
   - component: {fileID: 2035849454}
+  - component: {fileID: 2035849456}
   m_Layer: 0
   m_Name: SceneLoadManager
   m_TagString: Untagged
@@ -3229,6 +3230,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2035849456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2035849453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7417d078e51cf2428f75ef15c573a6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  persistentType: 0
+  ID: e7aa87ae-e119-45aa-84db-61b834cf2962
 --- !u!1 &2067434201
 GameObject:
   m_ObjectHideFlags: 0

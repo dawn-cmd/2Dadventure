@@ -8,7 +8,7 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
 
-public class SceneLoader : MonoBehaviour
+public class SceneLoader : MonoBehaviour, ISavable
 {
     public Transform playerTrans;
     public Vector3 firstPos;
@@ -45,10 +45,15 @@ public class SceneLoader : MonoBehaviour
     {
         LoadEventSO.LoadRequestEvent += OnLoadRequestEvent;
         newGame.OnEventRaised += NewGame;
+        ISavable savable = this;
+        savable.RegisterSaveDate();
     }
     private void OnDisable()
     {
         LoadEventSO.LoadRequestEvent -= OnLoadRequestEvent;
+        newGame.OnEventRaised -= NewGame;
+        ISavable savable = this;
+        savable.UnRegisterSaveDate();
     }
     private void NewGame()
     {
@@ -105,5 +110,26 @@ public class SceneLoader : MonoBehaviour
         isLoading = false;
         if (currentScene.sceneType != SceneType.Menu)
             afterSceneLoadedEvent.Raise();
+    }
+
+    public DataDefinition GetDataID()
+    {
+        return GetComponent<DataDefinition>();
+    }
+
+    public void GetSaveData(Data data)
+    {
+        data.SaveGameScene(currentScene);
+    }
+
+    public void LoadData(Data data)
+    {
+        var playerID = playerTrans.GetComponent<DataDefinition>().ID;
+        if (data.characterPosDist.ContainsKey(playerID))
+        {
+            posToGo = data.characterPosDist[playerID];
+            sceneToLoad = data.GetSavedScene();
+            OnLoadRequestEvent(sceneToLoad, posToGo, true);
+        }
     }
 }
