@@ -3017,6 +3017,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4838a3505ec6f214aa7a8863c83795ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  saveGameEvent: {fileID: 11400000, guid: 6fba1506129ffab4cb23ee1631cd9534, type: 2}
 --- !u!4 &1892917397
 Transform:
   m_ObjectHideFlags: 0

@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class Data
 {
-    public Dictionary<string, Vector3> characterPosDist = new Dictionary<string, Vector3>();
+    public Dictionary<string, Vector3> characterPosDist = new();
 }

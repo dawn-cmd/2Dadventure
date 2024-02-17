@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Character : MonoBehaviour
+public class Character : MonoBehaviour, ISavable
 {
     [Header("事件监听")]
     public VoidEventSO newGameEvent;
@@ -34,10 +34,14 @@ public class Character : MonoBehaviour
     private void OnEnable()
     {
         newGameEvent.OnEventRaised += NewGame;
+        ISavable savable = this;
+        savable.RegisterSaveDate();
     }
     private void OnDisable()
     {
         newGameEvent.OnEventRaised -= NewGame;
+        ISavable savable = this;
+        savable.UnRegisterSaveDate();
     }
     private void Start()
     {
@@ -95,5 +99,30 @@ public class Character : MonoBehaviour
     {
         currentPower -= cost;
         OnHealthChanged?.Invoke(this);
+    }
+
+    public DataDefinition GetDataID()
+    {
+        return GetComponent<DataDefinition>();
+    }
+
+    public void GetSaveData(Data data)
+    {
+        if (data.characterPosDist.ContainsKey(GetDataID().ID))
+        {
+            data.characterPosDist[GetDataID().ID] = transform.position;
+        }
+        else
+        {
+            data.characterPosDist.Add(GetDataID().ID, transform.position);
+        }
+    }
+
+    public void LoadData(Data data)
+    {
+        if (data.characterPosDist.ContainsKey(GetDataID().ID))
+        {
+            transform.position = data.characterPosDist[GetDataID().ID];
+        }
     }
 }
