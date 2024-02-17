@@ -92,10 +92,12 @@
     <Compile Include="Assets\Scripts\Audio\AudioDefinition.cs" />
     <Compile Include="Assets\Scripts\Save_Load\SavePoint.cs" />
     <Compile Include="Assets\Scripts\Enemy\BeeChaseState.cs" />
+    <Compile Include="Assets\Scripts\Save_Load\DataDefinition.cs" />
     <Compile Include="Assets\Settings\InputSystem\PlayerInputControl.cs" />
     <Compile Include="Assets\Scripts\Transition\SceneLoader.cs" />
     <Compile Include="Assets\Scripts\Enemy\Bee.cs" />
     <Compile Include="Assets\Scripts\UI\Menu.cs" />
+    <Compile Include="Assets\Scripts\Save_Load\Data.cs" />
     <Compile Include="Assets\Scripts\ScriptObject\FadeEventSO.cs" />
     <Compile Include="Assets\Scripts\Utilities\Enums.cs" />
     <Compile Include="Assets\Scripts\Enemy\SnailPatrolState.cs" />
@@ -104,7 +106,9 @@
     <Compile Include="Assets\Scripts\Transition\TeleportPoint.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerAnimation.cs" />
     <Compile Include="Assets\Scripts\UI\PlayerStateBar.cs" />
+    <Compile Include="Assets\Scripts\Save_Load\DataManager.cs" />
     <Compile Include="Assets\Scripts\General\AttackFinish.cs" />
+    <Compile Include="Assets\Scripts\Save_Load\ISavable.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\FastScriptReload\Plugins\Roslyn\2019+\RoslynLicense.txt" />
