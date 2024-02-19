@@ -10,8 +10,10 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [Header("事件监听")]
-    public SceneLoadEventSO loadEventSO;
+    public SceneLoadEventSO sceneLoadEvent;
     public VoidEventSO afterSceneLoadedEvent;
+    public VoidEventSO loadDataEvent;
+    public VoidEventSO backToMenuEvent;
 
     public PlayerInputControl inputControl;
     public Character character;
@@ -55,7 +57,7 @@ public class PlayerController : MonoBehaviour
         playerAnimation = GetComponent<PlayerAnimation>();
         inputDirection = Vector2.zero;
         inputControl = new PlayerInputControl();
-
+        inputControl.Enable();
         // Set of Jump
         inputControl.Gameplay.Jump.started += Jump;
 
@@ -79,7 +81,7 @@ public class PlayerController : MonoBehaviour
         {
             if (physicsCheck.isGround) speed = runSpeed;
         };
-        #endregion  
+        #endregion
 
     }
 
@@ -113,18 +115,25 @@ public class PlayerController : MonoBehaviour
     }
     private void OnEnable()
     {
-        inputControl.Enable();
-        loadEventSO.LoadRequestEvent += OnLoadRequestEvent;
+        sceneLoadEvent.LoadRequestEvent += OnLoadRequestEvent;
         afterSceneLoadedEvent.OnEventRaised += OnAfterSceneLoadedEvent;
+        loadDataEvent.OnEventRaised += OnLoadDataEvent;
+        backToMenuEvent.OnEventRaised += OnLoadDataEvent;
     }
-
-    
 
     private void OnDisable()
     {
         inputControl.Disable();
-        loadEventSO.LoadRequestEvent -= OnLoadRequestEvent;
+        sceneLoadEvent.LoadRequestEvent -= OnLoadRequestEvent;
         afterSceneLoadedEvent.OnEventRaised -= OnAfterSceneLoadedEvent;
+        loadDataEvent.OnEventRaised -= OnLoadDataEvent;
+        backToMenuEvent.OnEventRaised -= OnLoadDataEvent;
+    }
+    private void OnLoadDataEvent()
+    {
+        isDead = false;
+        // character.currentHealth = character.maxHealth;
+        // character.currentPower = character.maxPower;
     }
     private void OnLoadRequestEvent(GameSceneSO arg0, Vector3 arg1, bool arg2)
     {

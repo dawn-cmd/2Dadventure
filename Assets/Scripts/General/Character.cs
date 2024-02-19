@@ -61,6 +61,7 @@ public class Character : MonoBehaviour, ISavable
     {
         if (other.CompareTag("Water"))
         {
+            if (currentHealth <= 0) return;
             currentHealth = 0;
             OnDie?.Invoke();
             OnHealthChanged?.Invoke(this);

@@ -8,6 +8,7 @@ public class DataManager : MonoBehaviour
     public static DataManager instance;
     [Header("Event Capture")]
     public VoidEventSO saveGameEvent;
+    public VoidEventSO loadGameEvent;
     public List<ISavable> savableList = new List<ISavable>();
     private Data saveData;
     private void Awake()
@@ -25,10 +26,12 @@ public class DataManager : MonoBehaviour
     private void OnEnable()
     {
         saveGameEvent.OnEventRaised += Save;
+        loadGameEvent.OnEventRaised += Load;
     }
     private void OnDisable()
     {
         saveGameEvent.OnEventRaised -= Save;
+        loadGameEvent.OnEventRaised -= Load;
     }
     private void Update()
     {
