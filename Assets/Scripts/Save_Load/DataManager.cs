@@ -14,6 +14,7 @@ public class DataManager : MonoBehaviour
     public VoidEventSO loadGameEvent;
     public List<ISavable> savableList = new List<ISavable>();
     private Data saveData;
+    private string jsonFolder;
     private void Awake()
     {
         if (instance == null)
@@ -25,6 +26,7 @@ public class DataManager : MonoBehaviour
             Destroy(this.gameObject);
         }
         saveData = new Data();
+        jsonFolder = Application.persistentDataPath + "/SaveData/";
     }
     private void OnEnable()
     {
@@ -61,11 +63,8 @@ public class DataManager : MonoBehaviour
         {
             savable.GetSaveData(saveData);
         }
-
-        foreach (var item in saveData.characterPosDist)
-        {
-            Debug.Log(item.Key + " " + item.Value);
-        }
+        var resultPath = jsonFolder + "SaveData.sav";
+        var jsonData = JsonConvert.SerializeObject(saveData);
     }
     public void Load()
     {
