@@ -103,7 +103,6 @@
     <Compile Include="Assets\Scripts\Enemy\SnailPatrolState.cs" />
     <Compile Include="Assets\Scripts\UI\FadeCanvas.cs" />
     <Compile Include="Assets\Scripts\UI\UIManager.cs" />
-    <Compile Include="Assets\Scripts\General\SaveInteractable.cs" />
     <Compile Include="Assets\Scripts\Transition\TeleportPoint.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerAnimation.cs" />
     <Compile Include="Assets\Scripts\UI\PlayerStateBar.cs" />

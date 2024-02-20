@@ -60,10 +60,14 @@ public class DataManager : MonoBehaviour
     }
     public void Save()
     {
+        Debug.Log("Saving");
+        Debug.Log(savableList.Count);
         foreach (var savable in savableList)
         {
+            Debug.Log(savable.GetDataID().ID + " is saving!");
             savable.GetSaveData(saveData);
         }
+        Debug.Log("Saved");
         var resultPath = jsonFolder + "SaveData.sav";
         var jsonData = JsonConvert.SerializeObject(saveData);
         if (!File.Exists(resultPath))
@@ -74,10 +78,14 @@ public class DataManager : MonoBehaviour
     }
     public void Load()
     {
+        Debug.Log("Loading");
+        Debug.Log(savableList.Count);
         foreach (var savable in savableList)
         {
+            Debug.Log(savable.GetDataID().ID + " is loading!");
             savable.LoadData(saveData);
         }
+        Debug.Log("Loaded");
     }
     private void ReadSavedData()
     {

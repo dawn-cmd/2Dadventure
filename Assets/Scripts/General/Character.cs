@@ -36,12 +36,14 @@ public class Character : MonoBehaviour, ISavable
         newGameEvent.OnEventRaised += NewGame;
         ISavable savable = this;
         savable.RegisterSaveDate();
+        Debug.Log(GetDataID().ID + " is registered!");
     }
     private void OnDisable()
     {
         newGameEvent.OnEventRaised -= NewGame;
         ISavable savable = this;
         savable.UnRegisterSaveDate();
+        Debug.Log(GetDataID().ID + " is unregistered!");
     }
     private void Start()
     {
