@@ -111,13 +111,13 @@ public class Character : MonoBehaviour, ISavable
     {
         if (data.characterPosDist.ContainsKey(GetDataID().ID))
         {
-            data.characterPosDist[GetDataID().ID] = transform.position;
+            data.characterPosDist[GetDataID().ID] = new SerializeVector3(transform.position);
             data.floatSavedData[GetDataID().ID + "health"] = currentHealth;
             data.floatSavedData[GetDataID().ID + "power"] = currentPower;
         }
         else
         {
-            data.characterPosDist.Add(GetDataID().ID, transform.position);
+            data.characterPosDist.Add(GetDataID().ID, new SerializeVector3(transform.position));
             data.floatSavedData.Add(GetDataID().ID + "health", currentHealth);
             data.floatSavedData.Add(GetDataID().ID + "power", currentPower);
         }
@@ -127,7 +127,7 @@ public class Character : MonoBehaviour, ISavable
     {
         if (data.characterPosDist.ContainsKey(GetDataID().ID))
         {
-            transform.position = data.characterPosDist[GetDataID().ID];
+            transform.position = data.characterPosDist[GetDataID().ID].ToVector3();
             currentHealth = data.floatSavedData[GetDataID().ID + "health"];
             currentPower = data.floatSavedData[GetDataID().ID + "power"];
             OnHealthChanged?.Invoke(this);

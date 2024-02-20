@@ -27,6 +27,7 @@ public class DataManager : MonoBehaviour
         }
         saveData = new Data();
         jsonFolder = Application.persistentDataPath + "/SaveData/";
+        ReadSavedData();
     }
     private void OnEnable()
     {
@@ -65,12 +66,26 @@ public class DataManager : MonoBehaviour
         }
         var resultPath = jsonFolder + "SaveData.sav";
         var jsonData = JsonConvert.SerializeObject(saveData);
+        if (!File.Exists(resultPath))
+        {
+            Directory.CreateDirectory(jsonFolder);
+        }
+        File.WriteAllText(resultPath, jsonData);
     }
     public void Load()
     {
         foreach (var savable in savableList)
         {
             savable.LoadData(saveData);
+        }
+    }
+    private void ReadSavedData()
+    {
+        var resultPath = jsonFolder + "SaveData.sav";
+        if (File.Exists(resultPath))
+        {
+            var jsonData = File.ReadAllText(resultPath);
+            saveData = JsonConvert.DeserializeObject<Data>(jsonData);
         }
     }
 }
