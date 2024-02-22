@@ -16,6 +16,13 @@ public class UIManager : MonoBehaviour
     [Header("组件")]
     public GameObject gameOverPanel;
     public GameObject restartButton;
+    public GameObject mobileTouch;
+    private void Awake()
+    {
+        #if UNITY_STANDALONE
+            mobileTouch.SetActive(false);
+        #endif
+    }
     private void OnEnable()
     {
         healthEvent.OnEventRaised += OnHealthEvent;
@@ -42,7 +49,7 @@ public class UIManager : MonoBehaviour
     private void OnLoadDataEvent()
     {
         gameOverPanel.SetActive(false);
-        
+
     }
 
     private void OnUnLoadedSceneEvent(GameSceneSO sceneToLoad, Vector3 arg1, bool arg2)
