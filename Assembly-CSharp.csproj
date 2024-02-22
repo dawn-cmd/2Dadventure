@@ -82,6 +82,7 @@
     <Compile Include="Assets\Scripts\ScriptObject\GameSceneSO.cs" />
     <Compile Include="Assets\Scripts\Utilities\IInteractable.cs" />
     <Compile Include="Assets\Scripts\ScriptObject\VoidEventSO.cs" />
+    <Compile Include="Assets\Scripts\ScriptObject\FloatEventSO.cs" />
     <Compile Include="Assets\FastScriptReload\Samples\Basic\Scripts\Graph.cs" />
     <Compile Include="Assets\Scripts\Audio\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Player\HurtAnimation.cs" />

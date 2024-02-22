@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -13,16 +14,23 @@ public class UIManager : MonoBehaviour
     public VoidEventSO loadDataEvent;
     public VoidEventSO gameOverEvent;
     public VoidEventSO backToMenuEvent;
+    public FloatEventSO syncVolumeEvent;
+    [Header("广播")]
+    public VoidEventSO pauseEvent;
     [Header("组件")]
     public GameObject gameOverPanel;
     public GameObject restartButton;
     public GameObject mobileTouch;
+    public Button settingsButton;
+    public GameObject settingsPanel;
+    public Slider volumeSlider;
     private void Awake()
     {
 #if UNITY_STANDALONE
         // Disable mobile touch controls for standalone builds (Windows, Mac, Linux)
         mobileTouch.SetActive(false);
 #endif
+        settingsButton.onClick.AddListener(TogglePausePanel);
     }
     private void OnEnable()
     {
@@ -31,7 +39,14 @@ public class UIManager : MonoBehaviour
         loadDataEvent.OnEventRaised += OnLoadDataEvent;
         gameOverEvent.OnEventRaised += OnGameOverEvent;
         backToMenuEvent.OnEventRaised += OnLoadDataEvent;
+        syncVolumeEvent.OnEventRaised += OnSyncVolumeEvent;
     }
+
+    private void OnSyncVolumeEvent(float amount)
+    {
+        volumeSlider.value = (amount + 80) / 100;
+    }
+
     private void OnDisable()
     {
         healthEvent.OnEventRaised -= OnHealthEvent;
@@ -39,8 +54,23 @@ public class UIManager : MonoBehaviour
         loadDataEvent.OnEventRaised -= OnLoadDataEvent;
         gameOverEvent.OnEventRaised -= OnGameOverEvent;
         backToMenuEvent.OnEventRaised -= OnLoadDataEvent;
+        syncVolumeEvent.OnEventRaised -= OnSyncVolumeEvent;
     }
-
+    private void TogglePausePanel()
+    {
+        Debug.Log(settingsPanel.activeInHierarchy);
+        if (settingsPanel.activeInHierarchy)
+        {
+            Debug.Log("Close");
+            settingsPanel.SetActive(false);
+        }
+        else
+        {
+            Debug.Log("Open");
+            pauseEvent.Raise();
+            settingsPanel.SetActive(true);
+        }
+    }
     private void OnGameOverEvent()
     {
         gameOverPanel.SetActive(true);
