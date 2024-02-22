@@ -19,9 +19,10 @@ public class UIManager : MonoBehaviour
     public GameObject mobileTouch;
     private void Awake()
     {
-        #if UNITY_STANDALONE
-            mobileTouch.SetActive(false);
-        #endif
+#if UNITY_STANDALONE
+        // Disable mobile touch controls for standalone builds (Windows, Mac, Linux)
+        mobileTouch.SetActive(false);
+#endif
     }
     private void OnEnable()
     {
